@@ -103,19 +103,19 @@ const Categories = connect(state => ({
         <StarRatingComponent 
             starCount={5}
             value={0}
-            onStarClick={e => helper.toggleRefine({ filters: 'stars_count = 0'}).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '0').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={1}
-            onStarClick={e => helper.toggleRefine({ filters: 'stars_count >=1 AND stars_count < 2'}).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '1').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={2}
-            onStarClick={e => helper.toggleRefine({ filters: 'stars_count >= 3'}).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '2').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 

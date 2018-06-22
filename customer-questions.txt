@@ -11,6 +11,17 @@ Cheers,
 George
 
 ANSWER 1:
+Hi George! 
+
+Welcome to the Algolia family! I'm happy to help. :)
+
+Let's start with your question about records and indexing. You can think of an index as the place where Algolia stores the data you'll need to perform searches. It's a bit like a database table, except it's optimized for searching and has some great options for customizing. A record is any data object you want to be able to search for, for instance a single product in an online store.
+
+Custom Ranking is a great way to control the order of the results your searches return to improve the search experience. Useful metrics will depend on what your product is, but some great examples are number of sales, customer rating, views and likes. We have a great article about custom ranking here(https://www.algolia.com/doc/guides/ranking/custom-ranking/#metric-types), but don't hesitate to reach out if you have any more questions!
+
+Happy searching!
+Whitney
+
 
 
 QUESTION 2:
@@ -21,7 +32,20 @@ Sorry to give you the kind of feedback that I know you do not want to hear, but 
 Regards,
 Matt
 
+
 ANSWER 2:
+Hi Matt!
+
+Thank you for reaching out, and thank you for being a part of the Algolia community! We always want to hear feedback from our customers. I can understand why navigating the dashboard over and over could be frustrating.
+
+Did you know that you can clear and delete your index from your text editor using <index.clearIndex(callback)> and <client.deleteIndex(indexName, callback)>? There are some great code examples here(https://www.algolia.com/doc/api-reference/api-methods/clear-index/#examples).
+
+We are always here to help, so don't hesitate to reach out with any further questions or feedback.
+
+Happy searching!
+Whitney
+
+
 
 
 QUESTION 3:
@@ -32,4 +56,24 @@ I'm looking to integrate Algolia in my website. Will this be a lot of developmen
 Regards,
 Leo
 
+
+
 ANSWER 3:
+Hi Leo,
+
+Thank you for considering Algolia! I'm happy to help you.
+
+Implementing Algolia just takes three simple steps:
+    1) Indexing your data with us through our easy-to-navigate online dashboard
+    2) Configuring any relevance or ranking settings to ensure your search returns results in the perfect order
+    3) Building your website's search interface
+
+This article breaks down the three steps into more detail (https://www.algolia.com/doc/guides/getting-started/the-implementation-process/).
+
+We also have some great libraries to make integrating Algolia into your website super easy. You can read a bit about them and our whole ecosystem here(https://www.algolia.com/doc/guides/getting-started/ecosystem-overview/).
+
+If you need any specific help with your development, don't hesitate to reach out and we'll connect you with the best person to help. :)
+
+Happy searching!
+Whitney
+

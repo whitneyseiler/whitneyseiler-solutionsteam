@@ -23,6 +23,7 @@
     "nodemon": "^1.17.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-scrollbar": "^0.5.4",
     "react-star-rating-component": "^1.4.1",
     "style-loader": "^0.20.3"
   },

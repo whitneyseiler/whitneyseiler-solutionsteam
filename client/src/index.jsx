@@ -42,20 +42,20 @@ const Hit = ({hit}) => (
       <img src={hit.image_url}></img>
     </div>
     <div className="details">
-      <div class="name"><strong>{hit.name}</strong></div>
+      <div className="name"><strong>{hit.name}</strong></div>
       <div className="upper-details">
-        <div class="stars">{hit.stars_count}&nbsp;</div>
+        <div className="stars">{hit.stars_count}&nbsp;</div>
         <StarRatingComponent 
             starCount={5}
             value={hit.stars_count}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
-        <div class="reviews">&nbsp;({hit.reviews_count} reviews)</div>
+        <div className="reviews">&nbsp;({hit.reviews_count} reviews)</div>
       </div>
       <div className="lower-details">
-        <div class="food-type">{hit.food_type}&nbsp;|&nbsp;</div>
-        <div class="neighborhood">{hit.neighborhood}&nbsp;|&nbsp;</div>
-        <div class="price">{hit.price_range}</div><br />
+        <div className="food-type">{hit.food_type}&nbsp;|&nbsp;</div>
+        <div className="neighborhood">{hit.neighborhood}&nbsp;|&nbsp;</div>
+        <div className="price">{hit.price_range}</div><br />
       </div>
     </div>
   </div>
@@ -151,18 +151,22 @@ const Pagination = connect(({searchResults}) => (
 );
   
 const App = () =>
-  <Provider helper={helper}>
-    <div className="app">
-      <SearchBox />
-      <div className="main">
-        <Categories />
-        <div className="results">
-          <Hits />
-          <Pagination />
+    <Provider helper={helper}>
+        <div className="app">
+          <SearchBox />
+          <div className="main">
+      <ScrollArea>
+        <div>
+            <Categories />
+            </div>
+      </ScrollArea>
+            <div className="results">
+              <Hits />
+              <Pagination />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </Provider>;
+    </Provider>
 
 
 ReactDOM.render(<App />, document.querySelector('#root'));

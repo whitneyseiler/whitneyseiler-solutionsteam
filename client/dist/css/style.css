@@ -60,7 +60,6 @@ header {
   max-width: 1000px;
   height: 400px;
   margin: auto;
-  margin-bottom: 30px;
   position: relative;
   background: url("../../../resources/graphics/background.png") repeat; }
   .app .search-container {
@@ -79,7 +78,12 @@ header {
   .app .main {
     display: flex;
     flex-direction: row;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 30px;
+    max-height: 550px; }
+    @media (max-width: 900px) {
+      .app .main {
+        flex-direction: column; } }
   .app .categories,
   .app .facet-list,
   .app .results,
@@ -90,17 +94,15 @@ header {
     background: #fff; }
   .app .categories,
   .app .facet-list {
-    max-width: 30%;
-    width: 100%;
-    padding: 1em 0.5em;
+    max-width: 100%;
+    width: 300px;
     display: flex;
     padding: 0 40px 0 40px; }
     .app .categories li,
     .app .facet-list li {
       float: left;
       display: block;
-      height: 42px;
-      line-height: 42px;
+      line-height: 22px;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
@@ -137,10 +139,8 @@ header {
     justify-content: space-between;
     font-size: 14px;
     align-items: center;
-    padding: 0;
-    cursor: pointer; }
-  .app .category-name {
-    word-wrap: normal; }
+    cursor: pointer;
+    overflow-wrap: normal; }
   .app #ratings-facet {
     display: flex;
     flex-direction: column;
@@ -148,7 +148,7 @@ header {
   .app .results {
     position: relative;
     margin-right: 0;
-    max-width: calc(100% - 30%);
+    max-width: 100%;
     width: 100%;
     overflow: auto;
     padding: 1em;
@@ -181,13 +181,20 @@ header {
       display: flex;
       flex-direction: row;
       color: #969696;
-      font-weight: 100;
-      align-items: center; }
+      font-weight: 100; }
+      @media (max-width: 900px) {
+        .app .results .upper-details {
+          display: inline-block;
+          font-size: 14px; } }
     .app .results .lower-details {
       display: flex;
       flex-direction: row;
       color: #969696;
       font-weight: 100; }
+      @media (max-width: 900px) {
+        .app .results .lower-details {
+          flex-direction: column;
+          font-size: 14px; } }
     .app .results em {
       background: #FDBD57;
       padding: 0.15em; }

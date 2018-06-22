@@ -79,12 +79,10 @@ header {
 }
 
 .app {
-  // padding: 1em;
   top: 3em;
   max-width: 1000px;
   height: 400px;
   margin: auto;
-  margin-bottom: 30px;
   position: relative;
   background: url('../../../resources/graphics/background.png') repeat;
   
@@ -100,7 +98,6 @@ header {
     width: -webkit-fill-available;
     appearance: none;
     border: none;
-    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     background: #fff;
     border-radius: 4px;
   }
@@ -109,6 +106,12 @@ header {
     display: flex;
     flex-direction: row;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 30px;
+    max-height: 550px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
   }
 
   .categories,
@@ -123,17 +126,15 @@ header {
   
   .categories,
   .facet-list {
-    max-width: $sidebar-width;
-    width: 100%;
-    padding: 1em 0.5em;
+    max-width: 100%;
+    width: 300px;
     display: flex;
     padding: 0 40px 0 40px;
     
     li {
       float: left;
       display: block;
-      height: 42px;
-      line-height: 42px;
+      line-height: 22px;
       width: 100%;
       white-space: nowrap; 
       overflow: hidden; 
@@ -173,12 +174,8 @@ header {
     justify-content: space-between;
     font-size: 14px;
     align-items: center;
-    padding: 0;
-  cursor: pointer;
-  }
-
-  .category-name {
-    word-wrap: normal;
+    cursor: pointer;
+    overflow-wrap: normal;
   }
 
   #ratings-facet {
@@ -190,7 +187,7 @@ header {
   .results {
     position: relative;
     margin-right: 0;
-    max-width: calc(100% - #{$sidebar-width});
+    max-width: 100%;
     width: 100%;
     overflow: auto;
     padding: 1em;
@@ -234,7 +231,11 @@ header {
       flex-direction: row;
       color: rgb(150, 150, 150);
       font-weight: 100;
-      align-items: center;
+
+      @media (max-width: 900px) {
+        display: inline-block;
+        font-size: 14px;
+      }
     }
 
     .lower-details {
@@ -242,6 +243,11 @@ header {
       flex-direction: row;
       color: rgb(150, 150, 150);
       font-weight: 100;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+        font-size: 14px;
+      }
     }
 
     em {

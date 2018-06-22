@@ -4,7 +4,6 @@ const csv = require('csvtojson/v2');
 const converter = csv({ delimiter:";", toArrayString:true });
 const fs = require('fs');
 
-
 converter
   .fromFile(csvFilePath)
   .then((infoArr)=>{

@@ -1,4 +1,4 @@
-$sidebar-width: 360px;
+$sidebar-width: 25%;
 $background-color: #efefef;
 $icon-color: A7A7A7;
 $accent-color: #42A5EE;
@@ -30,7 +30,7 @@ html, body {
 }
 
 body {
-  background: $background-color;
+  background: url('../../../resources/graphics/background.png') repeat;
 }
 
 ul {
@@ -77,33 +77,51 @@ header {
     display: none;
   }
 }
+
 .app {
-  padding: 1em;
-  max-width: 1200px;
+  // padding: 1em;
+  top: 3em;
+  max-width: 1000px;
   margin: auto;
   position: relative;
+  background: url('../../../resources/graphics/background.png') repeat;
+  // -webkit-box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
+  // -moz-box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
+  // box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
   
+  .search-container {
+    background:rgb(0, 98, 128);
+    width: 100%;
+  }
   .search-box {
     font-size: 18px;
+    font-weight: 100;
     padding: 1em 0.75em;
-    width: 100%;
+    margin: 30px;
+    width: -webkit-fill-available;
     appearance: none;
     border: none;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    background: #fff url("data:image/svg+xml;utf8,<svg width=\'48\' height=\'48\' viewBox=\'0 0 48 48\' xmlns=\'http://www.w3.org/2000/svg\'><title>Shape</title><path d=\'M47.008 41.814L32.016 27.13c1.754-2.77 2.68-5.97 2.68-9.263 0-9.565-7.783-17.35-17.348-17.35C7.783.518 0 8.302 0 17.868c0 9.565 7.783 17.346 17.348 17.346 3.654 0 7.15-1.133 10.127-3.28l14.908 14.604c.62.61 1.44.945 2.313.945.896 0 1.736-.354 2.363-.994 1.273-1.302 1.25-3.398-.052-4.674zm-29.66-11.396c-6.92 0-12.55-5.63-12.55-12.55 0-6.92 5.63-12.55 12.55-12.55 6.92 0 12.55 5.63 12.55 12.55 0 3.258-1.243 6.346-3.5 8.695-2.39 2.486-5.605 3.855-9.05 3.855z\' fill=\'%23#{$icon-color}\' fill-rule=\'evenodd\'/></svg>")no-repeat center right 24px / 32px;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    background: #fff;
     border-radius: 4px;
   }
   
+  .main {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
   .categories,
   .facet-list,
   .results, 
   .pager {
     float: left;
-    border-radius: 4px;
-    margin-right: 16px;
+    // border-radius: 4px;
+    margin-right: 0;
     margin-left: 0;
-    margin-top: 1em;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    // margin-top: 1em;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     background: #fff;
   }
   
@@ -112,11 +130,12 @@ header {
     max-width: $sidebar-width;
     width: 100%;
     padding: 1em 0.5em;
+    display: flex;
     
     li {
       padding: 0 8px;
       float: left;
-      display: inline-block;
+      display: block;
       height: 42px;
       line-height: 42px;
       width: 100%;
@@ -125,9 +144,9 @@ header {
       text-overflow: ellipsis; 
       padding-bottom: 0.25em;
       
-      &:not(:last-child) {
-        border-bottom: 1px solid rgba(black, 0.1);
-      }
+      // &:not(:last-child) {
+      //   border-bottom: 1px solid rgba(black, 0.1);
+      // }
       
       &:hover {
         color: #14C145;
@@ -154,23 +173,37 @@ header {
     }
   }
   
+  .categories {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category {
+    display: flex;
+    flex-direction: row;
+  }
+
   .results {
     position: relative;
     margin-right: 0;
-    max-width: calc(100% - #{$sidebar-width} - 16px);
+    max-width: calc(100% - #{$sidebar-width});
     width: 100%;
     overflow: auto;
     padding: 1em;
+    display: flex;
+    flex-direction: column;
   
     @media (max-width: 900px) {
       max-width: 100%;
     }
     
-    div {
+    .hit {
       padding: 0.75em 0.75em;
-      border-bottom: 1px solid #efefef;
       padding-left: 2.5em;
       position: relative;
+      border: 1px solid grey;
+      display: flex;
+      flex-direction: row;
       
       &:before {
         display: block;
@@ -184,12 +217,25 @@ header {
       }
     }
   
+    .details {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
     em {
       background: #FDBD57;
       padding: 0.15em;
     }
   }
   
+  .hit-panel {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    background: white;
+  }
+
   .pager {
     width: 100%;
     margin-right: 0;

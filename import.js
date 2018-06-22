@@ -18,9 +18,10 @@ chunks.map(function(batch) {
 });
 
 index.setSettings({
-  'hitsPerPage': 3,
-  'attributesForFaceting': ['food-type', 'stars-count', 'payment_options', 'price'],
-  'maxValuesPerFacet': 10
+  hitsPerPage: 3,
+  attributesForFaceting: ['food_type', 'stars_count', 'payment_options', 'price'],
+  maxValuesPerFacet: 10,
+  paginationLimitedTo: 0,
   }, function(err) {
     if (!err) {
     console.log('success');

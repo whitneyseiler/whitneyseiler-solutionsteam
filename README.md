@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+## Whitney Seiler - Solutions Team Hiring Assignment
 
-You can use the [editor on GitHub](https://github.com/whitneyseiler/solutions-team-assignment/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Hi there! Thanks for considering my application, and for giving me the chance to demo my skills and ability to catch up quickly on new technology. I had a great time learning how to use the Algolia API.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### In The Repo
+In this repo you'll find the answers to the sample customer questions saved in the main directory as customer-questions.txt.
+The script I used to convert the csv records, combine them with the existing json records and import to Algolia is also in the root directory, and is named convert-and-import.js. I ran this file using the "import-records" script in my package.json.
 
-### Markdown
+### Fine Print
+This site is powered by Algolia, and was created as part of a hiring application for the Agolia Solutions Team.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/whitneyseiler/solutions-team-assignment/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

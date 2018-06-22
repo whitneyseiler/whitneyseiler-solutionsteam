@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import algoliasearch from 'algoliasearch';
+import ScrollArea from 'react-scrollbar';
 import StarRatingComponent from 'react-star-rating-component';
+import geolocation from 'geolocation';
+import algoliasearch from 'algoliasearch';
 
 import '../dist/css/style.css';
 import '../dist/scss/style.scss';
@@ -15,7 +17,6 @@ const helper = algoliasearchHelper(
   client, indexName, {
     facets: ['food_type', 'stars_count', 'price', 'payment_options'],
     hitsPerPage: 3,
-    maxValuesPerFacet: 3
   }
 );
 
@@ -63,39 +64,27 @@ const Hit = ({hit}) => (
 const Hits = connect(state => ({results: state.searchResults}))(
   ({results}) => results &&
     <div className="hits">
+      <span>{results.hits.length} results found</span>
       {results.hits.map((hit) => 
         <Hit key={hit.objectID} hit={hit} {...hit} />
       )}
     </div>
 );
   
-const Category = ({
-  name,
-  count,
-  isRefined,
-  handleClick
-  }) => (
+const Category = ({name, count, isRefined, handleClick}) => (
   <div>
     <li>
-      <div className="category">
-        <div onClick={handleClick}><span className="category-name">{name}&nbsp;</span></div>
+      <div onClick={handleClick} className="category">
+        <div><span className="category-name">{name}&nbsp;</span></div>
         <div><span className="badge">{count}</span></div>
       </div>
     </li>
   </div>
 )
 
-const Rating = function(){
-
-}
-
-
-const Categories = connect(
-  state => ({
-    categories: state.searchResults &&
-      state.searchResults.getFacetValues('food_type', 'stars_count', 'price', 'payment_options', {sortBy: ['count:desc', 'selected']}) ||
-      []
-  }))(
+const Categories = connect(state => ({ 
+  categories: state.searchResults &&
+    state.searchResults.getFacetValues('food_type', {sortBy: ['count:desc', 'selected']}) || [] }) )(
   ({categories, helper}) =>
     <ul className="categories">
       <h3>Cuisine/Food Type</h3>
@@ -104,7 +93,7 @@ const Categories = connect(
           <Category
             key={category.name}
             {...category}
-            handleClick={e => helper.toggleRefine(category, category.name).search()}
+            handleClick={e => helper.setQuery(category.name).search()}
           />
       )}
       <h3>Rating</h3>
@@ -112,37 +101,37 @@ const Categories = connect(
         <StarRatingComponent 
             starCount={5}
             value={0}
-            onStarClick={e => helper.toggleRefine('stars_count', 0).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '0').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={1}
-            onStarClick={e => helper.toggleRefine('stars_count', 1).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '1').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={2}
-            onStarClick={e => helper.toggleRefine('stars_count', 2).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '2').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={3}
-            onStarClick={e => helper.toggleRefine('stars_count', 3).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '3').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={4}
-            onStarClick={e => helper.toggleRefine('stars_count', 4).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '4').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={5}
-            onStarClick={e => helper.toggleRefine('stars_count', 5).search()}
+            onStarClick={e => helper.toggleRefine('stars_count', '5').search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
       </div>
@@ -151,35 +140,29 @@ const Categories = connect(
     </ul>
 );
   
-const Pagination = connect(
-  ({searchResults}) => (
+const Pagination = connect(({searchResults}) => (
     searchResults === null ?
       {page: 0, nbPages: 0} :
-      {page: searchResults.page, nbPages: searchResults.nbPages}
-  ))(
+      {page: searchResults.page, nbPages: searchResults.nbPages}))(
   ({page, nbPages, helper}) =>
-  <div className="pager">
-    <button className="previous" onClick={e => helper.setPage(page - 1).search()} disabled={page === 0}>Previous</button>
-    <span className="current-page">
-      {page + 1}
-    </span>
-    <button className="next" onClick={e => helper.setPage(page + 1).search()} disabled={page + 1 >= nbPages}>Next</button>
-  </div>
+    <div className="pager">
+      <button className="next" onClick={e => helper.setPage(page + 1).search()} disabled={page + 1 >= nbPages}>Show More</button>
+    </div>
 );
   
 const App = () =>
-<Provider helper={helper}>
-  <div className="app">
-    <SearchBox />
-    <div className="main">
-      <Categories />
-      <div className="results">
-        <Hits />
-        <Pagination />
+  <Provider helper={helper}>
+    <div className="app">
+      <SearchBox />
+      <div className="main">
+        <Categories />
+        <div className="results">
+          <Hits />
+          <Pagination />
+        </div>
       </div>
     </div>
-  </div>
-</Provider>;
+  </Provider>;
 
 
 ReactDOM.render(<App />, document.querySelector('#root'));

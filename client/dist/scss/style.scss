@@ -82,12 +82,11 @@ header {
   // padding: 1em;
   top: 3em;
   max-width: 1000px;
+  height: 400px;
   margin: auto;
+  margin-bottom: 30px;
   position: relative;
   background: url('../../../resources/graphics/background.png') repeat;
-  // -webkit-box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
-  // -moz-box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
-  // box-shadow: -1px 1px 5px 4px rgba(0,0,0,0.2);
   
   .search-container {
     background:rgb(0, 98, 128);
@@ -175,6 +174,7 @@ header {
     font-size: 14px;
     align-items: center;
     padding: 0;
+  cursor: pointer;
   }
 
   .category-name {

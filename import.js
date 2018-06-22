@@ -20,6 +20,17 @@ chunks.map(function(batch) {
 index.setSettings({
   hitsPerPage: 3,
   attributesForFaceting: ['food_type', 'stars_count', 'payment_options', 'price'],
+  searchableAttributes: [
+    'name',
+    'city',
+    'country',
+    'iata_code',
+    'food_type',
+    'stars_count', 
+    'payment_options', 
+    'pricepayment_options', 
+    'price'
+  ],
   maxValuesPerFacet: 10,
   paginationLimitedTo: 0,
   }, function(err) {

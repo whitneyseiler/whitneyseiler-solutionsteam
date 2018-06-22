@@ -58,7 +58,9 @@ header {
 .app {
   top: 3em;
   max-width: 1000px;
+  height: 400px;
   margin: auto;
+  margin-bottom: 30px;
   position: relative;
   background: url("../../../resources/graphics/background.png") repeat; }
   .app .search-container {
@@ -135,7 +137,8 @@ header {
     justify-content: space-between;
     font-size: 14px;
     align-items: center;
-    padding: 0; }
+    padding: 0;
+    cursor: pointer; }
   .app .category-name {
     word-wrap: normal; }
   .app #ratings-facet {

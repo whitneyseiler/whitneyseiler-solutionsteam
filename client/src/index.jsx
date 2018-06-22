@@ -23,6 +23,8 @@ const helper = algoliasearchHelper(
 const Provider = reactAlgoliaSearchHelper.Provider;
 const connect = reactAlgoliaSearchHelper.connect;
 
+let paymentOptions = ['AMEX', 'Visa', 'Discover', 'MasterCard'];
+
 const SearchBox = connect()(
   ({helper}) =>
   <div className="search-container">
@@ -64,7 +66,7 @@ const Hit = ({hit}) => (
 const Hits = connect(state => ({results: state.searchResults}))(
   ({results}) => results &&
     <div className="hits">
-      <span>{results.hits.length} results found</span>
+      <span>{results.hits.length} results found<hr/></span>
       {results.hits.map((hit) => 
         <Hit key={hit.objectID} hit={hit} {...hit} />
       )}
@@ -93,7 +95,7 @@ const Categories = connect(state => ({
           <Category
             key={category.name}
             {...category}
-            handleClick={e => helper.setQuery(category.name).search()}
+            handleClick={()=> helper.toggleRefine('food_type', category.name).search()}
           />
       )}
       <h3>Rating</h3>
@@ -101,19 +103,19 @@ const Categories = connect(state => ({
         <StarRatingComponent 
             starCount={5}
             value={0}
-            onStarClick={e => helper.toggleRefine('stars_count', '0').search()}
+            onStarClick={e => helper.toggleRefine({ filters: 'stars_count = 0'}).search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={1}
-            onStarClick={e => helper.toggleRefine('stars_count', '1').search()}
+            onStarClick={e => helper.toggleRefine({ filters: 'stars_count >=1 AND stars_count < 2'}).search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
             starCount={5}
             value={2}
-            onStarClick={e => helper.toggleRefine('stars_count', '2').search()}
+            onStarClick={e => helper.toggleRefine({ filters: 'stars_count >= 3'}).search()}
             emptyStarColor={'rgb(150, 150, 150)'}
         />
         <StarRatingComponent 
@@ -136,6 +138,16 @@ const Categories = connect(state => ({
         />
       </div>
       <h3>Payment Options</h3>
+        <ul className="categories">
+          {paymentOptions.map((payment) => 
+            <li>
+              <input type="checkbox" onClick={() => helper.toggleRefine('payment_options', payment).search()}/>
+              <div className="category">
+                <span>{payment}</span>
+              </div>
+            </li>
+          )}
+        </ul>
       <h3>Price</h3>
     </ul>
 );

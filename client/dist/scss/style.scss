@@ -40,7 +40,6 @@ ul {
 }
 
 input[type="checkbox"] {
-  display: inline-block;
   float: left;
   width: 24px;
   height: 24px;
@@ -48,11 +47,11 @@ input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   border: 1px solid rgba(black, 0.2);
-  text-align: center;
   margin: 8px 8px 0 0;
   border-radius: 3px;
   line-height: 42px;
   cursor: pointer;
+  text-overflow: ellipsis;
   
   &:checked:before {
     @include greenTick();
@@ -100,6 +99,7 @@ header {
     border: none;
     background: #fff;
     border-radius: 4px;
+    text-overflow: ellipsis;
   }
   
   .main {
@@ -127,16 +127,12 @@ header {
   .categories,
   .facet-list {
     max-width: 100%;
-    width: 300px;
+    width: 340px;
     display: flex;
-    padding: 0 40px 0 40px;
+    padding: 0 40px 0 30px;x
     
     li {
-      float: left;
-      display: block;
       line-height: 22px;
-      width: 100%;
-      white-space: nowrap; 
       overflow: hidden; 
       text-overflow: ellipsis; 
       
@@ -153,7 +149,6 @@ header {
         color: grey;
         border-radius: 14px;
         font-size: 14px;
-        text-align: right;
       }
     }
     
@@ -173,7 +168,6 @@ header {
     flex-direction: row;
     justify-content: space-between;
     font-size: 14px;
-    align-items: center;
     cursor: pointer;
     overflow-wrap: normal;
   }
@@ -182,6 +176,13 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    margin-left: 0 !important;
+    padding: 0;
   }
 
   .results {
@@ -202,15 +203,15 @@ header {
     
     .hits {
       border: none;
+      padding-left: 40px;
     }
 
     .hit {
-      padding: 0.75em 0.75em;
-      padding-left: 2.5em;
       position: relative;
       border: none;
       display: flex;
       flex-direction: row;
+      padding: 10px 0;
     }
     
     img {
@@ -255,22 +256,14 @@ header {
       padding: 0.15em;
     }
   }
-  
-  .hit-panel {
-    border: 1px solid black;
-    width: 100%;
-    display: flex;
-    background: white;
-  }
 
   .pager {
-    width: 100%;
-    margin-right: 0;
+    width: 260px;
+    margin: 0 auto;
     padding: 1em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
-    text-align: center;
     
     button, 
     span {
@@ -278,18 +271,18 @@ header {
     }
     
     button {
-      background: $accent-color;
-      color: #fff;
+      color:  rgb(150, 150, 150);
       appearance: none;
       -webkit-appearance: none;
-      border: 0;
+      border: 1px solid  rgb(150, 150, 150);
       padding: 0.5em 0.25em;
       cursor: pointer;
       border-radius: 4px;
       font-size: 18px;
+      width: 80px;
       
       &:hover {
-        background: mix($accent-color, #000, 85%);
+        background: mix(white, #000, 85%);
       }
     }
     

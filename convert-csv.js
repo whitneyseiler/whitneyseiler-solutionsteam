@@ -19,7 +19,7 @@ converter
   let combined = listArr.map(x => Object.assign(x, infoArr.find(y => Number(y.objectID) === x.objectID)));
     
   const chunks = chunk(combined, 1000);
-  
+
   chunks.map(function(batch) {
     return index.addObjects(batch, function(err, content) {
       if(err) {
@@ -31,7 +31,7 @@ converter
 
 index.setSettings({
   hitsPerPage: 3,
-  attributesForFaceting: ['food_type', 'stars_count', 'payment_options', 'price'],
+  attributesForFaceting: ['food_type', 'stars_count', 'payment_options', 'price_range'],
   searchableAttributes: [
     'name',
     'city',
@@ -41,7 +41,7 @@ index.setSettings({
     'stars_count', 
     'payment_options', 
     'pricepayment_options', 
-    'price'
+    'price_range'
   ],
   maxValuesPerFacet: 10,
   paginationLimitedTo: 0,

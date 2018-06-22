@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "react-dev": "webpack -p --watch",
-    "import-records": "node convert-csv.js && node import.js",
+    "import-records": "node convert-csv.js",
     "scss": "node-sass --watch client/dist/scss -o client/dist/css"
   },
   "author": "Whitney Seiler",

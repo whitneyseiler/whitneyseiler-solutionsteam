@@ -12,6 +12,9 @@ html, body {
   height: 100%;
   font-size: 1em; }
 
+body {
+  background: url("https://whitneyseiler.github.io/whitneyseiler-solutionsteam/resources/graphics/background.png") repeat; }
+
 ul {
   padding: 0;
   margin: 0;

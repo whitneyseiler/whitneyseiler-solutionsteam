@@ -20,19 +20,15 @@ module.exports = {
         },
       },
       {
-        test: /\.(s*)css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        "test": /\.scss$/,
+        "loaders": ["style", "css", "sass?sourceMap"]
       },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
-            options: {}  
+            options: {} 
           }
         ]
       }

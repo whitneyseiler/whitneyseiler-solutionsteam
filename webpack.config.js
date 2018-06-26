@@ -20,8 +20,12 @@ module.exports = {
         },
       },
       {
-        "test": /\.scss$/,
-        "loaders": ["style", "css", "sass?sourceMap"]
+        test: /\.(s*)css$/,
+        use: [
+          'style-loader',
+          'css-loader?url=false',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,

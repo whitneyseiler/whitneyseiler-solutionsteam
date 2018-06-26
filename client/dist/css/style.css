@@ -10,9 +10,7 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-size: 1em; }
-
-body {
+  font-size: 1em;
   background: url("https://whitneyseiler.github.io/whitneyseiler-solutionsteam/resources/graphics/background.png") repeat; }
 
 ul {
@@ -59,8 +57,7 @@ header {
   max-width: 1000px;
   height: 400px;
   margin: auto;
-  position: relative;
-  background: url("https://whitneyseiler.github.io/whitneyseiler-solutionsteam/resources/graphics/background.png") repeat; }
+  position: relative; }
   .app .search-container {
     background: #006280;
     width: 100%; }

@@ -1,6 +1,6 @@
-## Whitney Seiler - Solutions Team Hiring Assignment
+## About
 
-Hi there! Thanks for considering my application, and for giving me the chance to demo my skills and ability to catch up quickly on new technology. I had a great time learning how to use the Algolia API.
+This project was completed as a hiring assignment for the Solutions Engineer position at Algolia. A live demo can be found here: https://whitneyseiler.github.io/whitneyseiler-solutionsteam/.
 
 ### In The Repo
 In this repo you'll find the answers to the sample customer questions saved in the main directory as customer-questions.txt.
